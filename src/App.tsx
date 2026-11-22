@@ -27,6 +27,7 @@ import { DocumentDetail } from './screens/DocumentDetail';
 import { PartsPage } from './screens/PartsPage';
 import { VehiclesPage } from './screens/VehiclesPage';
 import { IntervalsPage } from './screens/IntervalsPage';
+import { AccountPage, RecoverySheet } from './screens/AccountPage';
 
 const TABS: { id: Tab; label: string; icon: string }[] = [
   { id: 'uebersicht', label: 'Übersicht', icon: 'home' },
@@ -152,6 +153,9 @@ export default function App() {
       case 'intervals':
         content = <IntervalsPage />;
         break;
+      case 'account':
+        content = <AccountPage />;
+        break;
     }
   } else {
     content = { uebersicht: <Dashboard />, wartung: <MaintenanceList />, historie: <History />, kosten: <Costs />, mehr: <More /> }[tab];
@@ -197,6 +201,7 @@ export default function App() {
         {record && <RecordSheet id={record.id} type={record.type} onClose={() => setRecord(null)} />}
         {scan && <ScanFlow onClose={() => setScan(false)} />}
         {bulk && <BulkImport onClose={() => setBulk(false)} />}
+        <RecoverySheet />
         <ToastHost />
       </div>
     </NavCtx.Provider>

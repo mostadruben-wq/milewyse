@@ -14,7 +14,8 @@ export type Page =
   | { name: 'document'; id: string }
   | { name: 'parts' }
   | { name: 'vehicles' }
-  | { name: 'intervals' };
+  | { name: 'intervals' }
+  | { name: 'account' };
 
 export type StatusFilter = Status | 'alle';
 

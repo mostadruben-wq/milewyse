@@ -5,6 +5,7 @@ import { Icon } from '../components/Icon';
 import { fmtKm } from '../lib/util';
 import { vehicleSubtitle } from '../components/VehicleFields';
 import wordmark from '../assets/wordmark-navy.svg';
+import { displayName, useAuth } from '../lib/auth';
 
 const I = ({ n }: { n: string }) => (
   <span className="icon-tile" style={{ width: 30, height: 30, borderRadius: 8 }}>
@@ -16,9 +17,24 @@ export function More() {
   const { root, state, km, mode } = useStore();
   const nav = useNav();
   const v = state.vehicle;
+  const auth = useAuth();
   return (
     <>
       <h1 className="large-title" style={{ marginTop: 14 }}>Mehr</h1>
+      {auth.configured && (
+        <div className="group" style={{ marginBottom: 12 }}>
+          <button className="row" style={{ minHeight: 68 }} onClick={() => nav.push({ name: 'account' })}>
+            <span className="avatar" style={{ width: 44, height: 44, fontSize: 15 }} aria-hidden="true">
+              {auth.user ? displayName(auth.user).split(/[\s@.]+/).filter(Boolean).map((w) => w[0]).join('').slice(0, 2).toUpperCase() : <Icon name="user" size={22} />}
+            </span>
+            <div className="row-main">
+              <div className="row-title" style={{ fontWeight: 600 }}>{auth.user ? displayName(auth.user) : 'Anmelden oder registrieren'}</div>
+              <div className="row-sub">{auth.user ? auth.user.email : 'Optionales Milewyse-Konto'}</div>
+            </div>
+            <Icon name="chevron" size={14} stroke={2.6} className="row-chevron" />
+          </button>
+        </div>
+      )}
       <div className="group">
         <button className="row" style={{ minHeight: 76 }} onClick={() => nav.push({ name: 'vehicle' })}>
           {v.photo ? <span style={{ width: 52, height: 52, borderRadius: 14, background: `center/cover url(${v.photo})`, flex: 'none' }} /> : <span className="icon-tile" style={{ width: 52, height: 52, borderRadius: 14 }}><Icon name="car" size={28} /></span>}
