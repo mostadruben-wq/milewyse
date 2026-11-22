@@ -1,0 +1,6 @@
+node_modules
+dist-preview
+dist-artifact
+*.tsbuildinfo
+.DS_Store
+public/ocr

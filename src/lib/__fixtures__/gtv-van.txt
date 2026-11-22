@@ -1,0 +1,35 @@
+Rechnung INV843197
+Bestellung ORD852572
+Max Mustermann www.gtv-van.com
+Musterstraße 1 info@GTV-VAN.com
+12345 Musterstadt Tel +33 (0)5 3263 0787
+Deutschland
+GTV-VAN
+22 rue de la Jouclane
+kunde@example.org
+31330 Grenade
+Tel 0000000000 0000000000
+Haute-Garonne
+France
+Rechnungsnummer Bestellnummer Kundennummer Datum
+INV843197 ORD852572 212875592 Montag 07 April 2025
+Beschreibung Artikel-Code Anzahl MwSt. Einzelpreis Rabatt Summe
+SEIKEL Fahrzeug-Höherlegung für VW T4 Syncro 1011 0002 KR 1x 20% €1.153,00 €0,00 €1.153,00
+1011 0002 kurz
+Motor- und Getriebe-Unterbodenschutzplatte für VW T4 GTV-T4-SKPL 1x 20% €279,00 €0,00 €279,00
+GTV-T4-SKPL
+Versand & Bearbeitung 1x 20% €40,00 €0,00 €40,00
+Paket standard
+Zahlungskosten 1x 0% €0,00 €0,00 €0,00
+Mollie - Visa
+Gesamt exkl. MwSt. €1.226,66
+MwSt. 20% €245,33
+Gesamt inkl. MwSt. €1.472,00
+Angaben zum Unternehmen Bankverbindung Lieferadresse
+Handelsregisternummer Kontoinhaber Alexander Ebeling Max Mustermann
+53026102300028 Bank Qonto (Olinda SAS) Musterstraße 1
+Eingetragen in RCS Toulouse IBAN FR76 1695 8000 0137 0346 8685 12345 Musterstadt
+Steuernummer FR56530261023 811 Deutschland
+Inhaber Alexander Ebeling BIC QNTOFRP1XXX
+Zahlungsmethode
+Mollie - Visa
