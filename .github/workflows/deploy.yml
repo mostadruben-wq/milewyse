@@ -20,6 +20,7 @@ jobs:
         if: hashFiles('milewyse-src.zip') != ''
         run: |
           unzip -q milewyse-src.zip -d /tmp/src
+          rm -rf /tmp/src/milewyse/.github
           cp -a /tmp/src/milewyse/. .
           git rm -q milewyse-src.zip
           git config user.name "github-actions[bot]"
