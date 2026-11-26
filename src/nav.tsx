@@ -6,7 +6,7 @@ export type Tab = 'uebersicht' | 'wartung' | 'historie' | 'kosten' | 'mehr';
 export type Page =
   | { name: 'item'; id: string }
   | { name: 'mileage' }
-  | { name: 'vehicle' }
+  | { name: 'vehicle'; id?: string }
   | { name: 'settings' }
   | { name: 'backup' }
   | { name: 'sources' }

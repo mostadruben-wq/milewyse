@@ -715,3 +715,7 @@ input[type='range']::-moz-range-thumb { width: 28px; height: 28px; border: 0; bo
 .divider-or::before, .divider-or::after { content: ''; flex: 1; height: 1px; background: var(--separator); }
 .consent { display: flex; gap: 12px; align-items: flex-start; margin: 16px 4px 0; font-size: 13.5px; color: var(--label-2); line-height: 1.45; }
 .consent input { width: 22px; height: 22px; flex: none; accent-color: var(--accent-blue); margin-top: 1px; }
+
+/* Fahrzeugdaten bearbeiten */
+.greet-edit { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; background: none; border: 0; padding: 0; color: inherit; font: inherit; cursor: pointer; }
+.row-select { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; background: none; border: 0; padding: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; }

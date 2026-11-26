@@ -55,7 +55,7 @@ interface Store {
   rate: MileageRate | null;
   dues: Record<string, DueInfo>;
   update: (fn: (s: AppState) => AppState) => void;
-  updateVehicle: (patch: Partial<Vehicle>) => void;
+  updateVehicle: (patch: Partial<Vehicle>, id?: string) => void;
   setGroup: (groupId: string, on: boolean) => void;
   setActiveVehicle: (id: string) => void;
   addVehicle: (v: Vehicle) => void;
@@ -255,7 +255,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     rate,
     dues,
     update,
-    updateVehicle: (patch) => update((s) => ({ ...s, vehicles: s.vehicles.map((v) => (v.id === s.activeVehicleId ? { ...v, ...patch } : v)) })),
+    updateVehicle: (patch, id) => update((s) => ({ ...s, vehicles: s.vehicles.map((v) => (v.id === (id ?? s.activeVehicleId) ? { ...v, ...patch, id: v.id } : v)) })),
     setGroup: (groupId, on) => update((s) => toggleGroup(s, s.activeVehicleId, groupId, on)),
     setActiveVehicle: (id) => update((s) => ({ ...s, activeVehicleId: id })),
     addVehicle: (v) => update((s) => ({ ...s, vehicles: [...s.vehicles, v], items: [...s.items, ...buildItems(v)], activeVehicleId: v.id })),

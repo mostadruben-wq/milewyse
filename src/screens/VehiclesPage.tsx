@@ -38,7 +38,8 @@ export function VehiclesPage() {
           const active = v.id === root.activeVehicleId;
           const km = currentKm(root.mileage.filter((m) => m.vehicleId === v.id));
           return (
-            <button key={v.id} className="row" style={{ minHeight: 72 }} onClick={() => (setActiveVehicle(v.id), toast(`${v.name} ausgewählt`), nav.setTab('uebersicht'))}>
+            <div key={v.id} className="row" style={{ minHeight: 72, paddingRight: 8 }}>
+            <button className="row-select" onClick={() => (setActiveVehicle(v.id), toast(`${v.name} ausgewählt`), nav.setTab('uebersicht'))}>
               {v.photo ? <span style={{ width: 48, height: 48, borderRadius: 12, background: `center/cover url(${v.photo})`, flex: 'none' }} /> : <span className="icon-tile" style={{ width: 48, height: 48, borderRadius: 12 }}><Icon name="car" size={26} /></span>}
               <div className="row-main">
                 <div className="row-title" style={{ fontWeight: 600 }}>{v.name}</div>
@@ -46,13 +47,17 @@ export function VehiclesPage() {
               </div>
               {active && <Icon name="check" size={20} stroke={2.6} style={{ color: 'var(--tint)' }} />}
             </button>
+            <button className="circle-btn" style={{ width: 40, height: 40, flex: 'none' }} aria-label={`${v.name} bearbeiten`} onClick={() => nav.push({ name: 'vehicle', id: v.id })}>
+              <Icon name="edit" size={18} />
+            </button>
+            </div>
           );
         })}
       </div>
       <button className="btn btn-secondary btn-block mt-lg" onClick={() => setWizard(true)}>
         Fahrzeug hinzufügen
       </button>
-      <div className="section-footer">Jedes Fahrzeug hat eigene Wartungspositionen, Kilometerstände, Historie und Ersatzteile. Dokumente lassen sich einem oder keinem Fahrzeug zuordnen.</div>
+      <div className="section-footer">Tippe auf ein Fahrzeug, um es auszuwählen, oder auf den Stift, um seine Daten zu ändern. Jedes Fahrzeug hat eigene Wartungspositionen, Kilometerstände, Historie und Ersatzteile. Dokumente lassen sich einem oder keinem Fahrzeug zuordnen.</div>
     </>
   );
 }

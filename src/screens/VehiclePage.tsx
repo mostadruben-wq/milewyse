@@ -6,10 +6,10 @@ import { Icon } from '../components/Icon';
 import { VehicleFields, draftToVehicle, validateVehicleDraft, type VehicleDraft } from '../components/VehicleFields';
 import { resizeImage } from '../lib/util';
 
-export function VehiclePage() {
+export function VehiclePage({ id }: { id?: string }) {
   const { state, root, updateVehicle, deleteVehicle } = useStore();
   const nav = useNav();
-  const v0 = state.vehicle;
+  const v0 = (id && root.vehicles.find((x) => x.id === id)) || state.vehicle;
   const [d, setD] = useState<VehicleDraft>({ v: v0, year: v0.year ? String(v0.year) : '', annual: v0.annualKm ? String(v0.annualKm) : '' });
   const [error, setError] = useState<string | null>(null);
   const [del, setDel] = useState(false);
@@ -20,8 +20,8 @@ export function VehiclePage() {
     if (e) return setError(e);
     const { template: _t, fuel: _f, drive: _d, ...rest } = draftToVehicle(d);
     void _t; void _f; void _d;
-    updateVehicle({ ...rest, fuel: d.v.fuel, drive: d.v.drive });
-    toast('Fahrzeugprofil gespeichert');
+    updateVehicle({ ...rest, fuel: d.v.fuel, drive: d.v.drive }, v0.id);
+    toast('Fahrzeugdaten gespeichert');
     nav.pop();
   };
 
@@ -37,7 +37,7 @@ export function VehiclePage() {
 
   return (
     <>
-      <NavBar onBack={nav.pop} backLabel="Abbrechen" title="Fahrzeugprofil" right={<button className="nav-btn bold" onClick={save}>Sichern</button>} />
+      <NavBar onBack={nav.pop} backLabel="Abbrechen" title="Fahrzeugdaten" right={<button className="nav-btn bold" onClick={save}>Sichern</button>} />
       <button
         onClick={() => fileRef.current?.click()}
         aria-label="Fahrzeugfoto wählen"

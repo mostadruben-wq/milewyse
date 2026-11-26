@@ -41,13 +41,15 @@ export function More() {
           <div className="row-main">
             <div className="row-title" style={{ fontWeight: 600, fontSize: 18 }}>{v.name}</div>
             <div className="row-sub">{vehicleSubtitle(v)}</div>
+            <div className="row-sub" style={{ color: 'var(--tint)', fontWeight: 500, marginTop: 2 }}>Fahrzeugdaten bearbeiten</div>
           </div>
-          <Icon name="chevron" size={14} stroke={2.6} className="row-chevron" />
+          <Icon name="edit" size={18} style={{ color: 'var(--tint)', flex: 'none' }} />
         </button>
       </div>
 
       <Section header="Fahrzeug">
         <div className="group">
+          <Row icon={<I n="edit" />} title="Fahrzeugdaten bearbeiten" onClick={() => nav.push({ name: 'vehicle' })} />
           <Row icon={<I n="swap" />} title="Fahrzeuge" value={String(root.vehicles.length)} onClick={() => nav.push({ name: 'vehicles' })} />
           <Row icon={<I n="gauge" />} title="Kilometerstand" value={fmtKm(km)} onClick={() => nav.push({ name: 'mileage' })} />
           <Row icon={<I n="tag" />} title="Ersatzteile" value={String(state.parts.length)} onClick={() => nav.push({ name: 'parts' })} />

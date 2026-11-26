@@ -127,7 +127,7 @@ export default function App() {
         content = <MileagePage />;
         break;
       case 'vehicle':
-        content = <VehiclePage />;
+        content = <VehiclePage key={top.id ?? "active"} id={top.id} />;
         break;
       case 'settings':
         content = <SettingsPage />;

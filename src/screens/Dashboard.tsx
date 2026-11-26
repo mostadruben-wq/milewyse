@@ -40,13 +40,15 @@ export function Dashboard() {
   return (
     <>
       <div className="greet">
-        <div className="avatar" style={v.photo ? { backgroundImage: `url(${v.photo})` } : undefined} aria-hidden="true">
-          {!v.photo && <span style={{ fontWeight: 600 }}>{initials}</span>}
-        </div>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <h1 style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{v.name}</h1>
-          <p>{dateStr}</p>
-        </div>
+        <button className="greet-edit" aria-label={`Fahrzeugdaten von ${v.name} bearbeiten`} onClick={() => nav.goTo('mehr', { name: 'vehicle' })}>
+          <div className="avatar" style={v.photo ? { backgroundImage: `url(${v.photo})` } : undefined} aria-hidden="true">
+            {!v.photo && <span style={{ fontWeight: 600 }}>{initials}</span>}
+          </div>
+          <div style={{ flex: 1, minWidth: 0, textAlign: 'left' }}>
+            <h1 style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{v.name}</h1>
+            <p>{dateStr}</p>
+          </div>
+        </button>
         {root.vehicles.length > 1 && (
           <button className="circle-btn" aria-label="Fahrzeug wechseln" onClick={() => nav.goTo('mehr', { name: 'vehicles' })}>
             <Icon name="swap" size={19} />
